@@ -1,0 +1,5 @@
+All i changed is 
+1. The cell where ive build the paired dataset and label mapping
+2. The cell where ive done train/val/test split
+3. The cell where ive define the loss function
+4. The training loop cell, where ive used the loss 
