@@ -1,0 +1,9 @@
+About Accuracy and Model Learning 
+
+**Observation**	                          **Interpretation**
+Both losses decrease	                    Model is learning
+Train/validation gap relatively small	    No strong overfitting evidence
+Low Macro F1	                            Weak class discrimination
+AKIEC overprediction	                    Class prediction bias
+BKL weak performance	                    Poor class recognition
+Fluctuating validation metrics	          Unstable validation performance
