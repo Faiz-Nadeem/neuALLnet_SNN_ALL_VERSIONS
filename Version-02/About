@@ -1,5 +1,17 @@
-All i changed is 
-1. The cell where ive build the paired dataset and label mapping
-2. The cell where ive done train/val/test split
-3. The cell where ive define the loss function
-4. The training loop cell, where ive used the loss 
+Component	version-01 notebook and	Updated(version-02) notebook
+Model architecture	      Dual-Branch NeurALLNet	                  Same architecture
+Input images	            Clinical + Dermoscopic	                  Same
+Number of classes	        11	                                      11
+Image resolution	        224 × 224	                                224 × 224
+Batch size	              8	                                        8
+Time steps	              4	                                        4
+Label format	            String labels	                            Integer labels
+Loss function	            Standard CrossEntropyLoss	                Weighted CrossEntropyLoss
+Class balancing	          No	                                      Yes, through class weights
+Optimizer	                Adam	                                    Adam
+Initial learning rate	    0.001	                                    0.001
+LR scheduler	            LambdaLR	                                Same LambdaLR
+Maximum epochs	          50	                                      50
+Early stopping patience	  10	                                      10
+Model selection	          Highest validation accuracy	              Highest validation Macro F1
+Evaluation	              Test-set evaluation using best checkpoint	Test report before checkpoint reload; subsequent evaluation on validation set
