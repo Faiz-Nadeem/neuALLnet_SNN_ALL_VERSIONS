@@ -1,4 +1,4 @@
-neurallnet-snn-version-04
+###neurallnet-snn-version-04
 Loss Function changes to "Focal Loss"
 About Accuracy and Model Learning 
 
@@ -10,10 +10,11 @@ AKIEC overprediction	                    Class prediction bias
 BKL weak performance	                    Poor class recognition
 Fluctuating validation metrics	          Unstable validation performance
 
-neurallnet-snn-version-04-b
+###neurallnet-snn-version-04-b
 This version focuses on five diagnostic classes (BCC, NV, BKL, SCCKA, and MEL), 
 excluding AKIEC. It retains the original architecture, paired-image processing, 
 and Focal Loss with training-based class weighting.
+Applied inverse-frequency class weighting with Focal Loss (γ = 2.0).
 
 ""Why AKIEC was excluded:"" AKIEC was the least represented class in the paired dataset, containing only 303 lesions compared with 
 450–2,522 samples in the other classes. Its classification performance was also weak in Version-04 (F1-score: 0.20), with substantial 
@@ -22,3 +23,15 @@ under the same experimental configuration.
 One research clarification: Removing a difficult class does not solve the original six-class classification problem. Version-04B is a separate 
 five-class experiment, and its improved Macro F1 should be interpreted within that scope. AKIEC exclusion is an experimental design choice, 
 not proof that the class is inherently unsuitable for SNN classification.
+
+### neurallnet-snn-version-04-c
+- Integrated paired clinical and dermoscopic image inputs with ImageNet normalization and no random augmentation.
+- Applied inverse-frequency class weighting with Focal Loss (γ = 2.0).
+
+
+### neurallnet-snn-version-04-d
+- Improved training evaluation by adding post-epoch evaluation in `model.eval()` mode.
+- Separated online training metrics from post-epoch training metrics.
+- Implemented sample-weighted loss calculation for more consistent evaluation.
+- Retained validation Macro F1-based checkpointing and early stopping.
+- Added diagnostic analyses for class prediction distribution, layer-wise LIF firing activity, and gradient flow.
